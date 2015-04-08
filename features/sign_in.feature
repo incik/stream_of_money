@@ -1,7 +1,7 @@
 Feature: Homepage interaction
 
   Background:
-    Given I'm not logged in
+    Given I am not logged in
     And I go to homepage
     Then I should see login form
 

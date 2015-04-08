@@ -1,7 +1,7 @@
 Feature: Editing invoice expenses
 
   Background:
-    Given I'm logged in
+    Given I am logged in
     And I go to dashboard
     And I have at least one invoice
     And I expand invoice

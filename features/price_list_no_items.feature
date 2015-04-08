@@ -1,7 +1,7 @@
 Feature: Price list with no items
 
   Background:
-    Given I'm logged in as 'karel@seznam.cz'
+    Given I am logged in as 'karel@seznam.cz'
     And I go to price list
     Then I see no price list items
 

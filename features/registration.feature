@@ -1,7 +1,7 @@
 Feature: User registration
 
   Background:
-    Given I'm not logged in
+    Given I am not logged in
     And I go to homepage
     Then I should see registration link
     And I go to registration
