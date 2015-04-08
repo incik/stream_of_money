@@ -6,12 +6,13 @@ Feature: Homepage for user that's not logged in
     Then I should see login form
 
   Scenario: Successful signing in
-    When I fill "username" with "tomas@vaisar.cz"
-    And I fill "password" with "heslo"
-    Then I should be successfully signed in
+    Given there is user "tomas@vaisar.cz"
+    When I fill "user_email" with "tomas@vaisar.cz"
+    And I fill "user_password" with "heslo123"
+    Then I should successfully sign in
 
   Scenario: Unsuccessful signing in
-    When I fill "username" with "vincent@seznam.cz"
-    And I fill "password" with "mrnavy"
-    Then I should see error message
+    When I fill "user_email" with "vincent@seznam.cz"
+    And I fill "user_password" with "mrnavy"
+    Then I should not successfully sign in
 
