@@ -7,35 +7,33 @@ Feature: User registration
     And I go to registration
 
   Scenario: User fills all required fields
-    When I fill "name" with "Tomáš"
-    And I fill "surname" with "Vaisar"
-    And I fill "password" with "heslo"
-    And I fill "password_confirmation" with "heslo"
-    And I fill "email" with "tomas.vaisar@gmail.com"
-    And I fill "billapp_user" with "tomas.vaisar@gmail.com"
-    And I fill "billapp_password" with "heslicko"
-    And I fill "billapp_agenda" with "tomvaisar"
-    And I click on "register"
-    Then I should be successfully registered
+    When I fill "user_name" with "Tomáš"
+    And I fill "user_surname" with "Vaisar"
+    And I fill "user_password" with "heslo123"
+    And I fill "user_password_confirmation" with "heslo123"
+    And I fill "user_email" with "tomas.vaisar@gmail.com"
+    And I fill "user_billapp_user" with "tomas.vaisar@gmail.com"
+    And I fill "user_billapp_password" with "heslicko"
+    And I fill "user_billapp_agenda" with "tomvaisar"
+    Then I should successfully register
 
   Scenario: User doesn't fill all required fields
-    When I fill "name" with "Tomáš"
-    And I fill "surname" with "Vaisar"
-    And I fill "password" with "heslo"
-    And I fill "password_confirmation" with "heslo"
-    And I fill "billapp_user" with "tomas@vaisar.cz"
-    And I fill "billapp_password" with "heslicko"
-    And I click on "register"
-    Then I should see error message
+    When I fill "user_name" with "Tomáš"
+    And I fill "user_surname" with "Vaisar"
+    And I fill "user_password" with "heslo123"
+    And I fill "user_password_confirmation" with "heslo123"
+    And I fill "user_billapp_user" with "tomas@vaisar.cz"
+    And I fill "user_billapp_password" with "heslicko"
+    Then I should not register and I should see error message
 
   Scenario: User is already registered
-    When I fill "name" with "Tomáš"
-    And I fill "surname" with "Vaisar"
-    And I fill "password" with "heslo"
-    And I fill "password_confirmation" with "heslo"
-    And I fill "email" with "tomas@vaisar.cz"
-    And I fill "billapp_user" with "tomas.vaisar@gmail.com"
-    And I fill "billapp_password" with "heslicko"
-    And I fill "billapp_agenda" with "tomvaisar"
-    And I click on "register"
-    Then I should see error message about exisiting account
+    Given there is user "tomas@vaisar.cz"
+    When I fill "user_name" with "Tomáš"
+    And I fill "user_surname" with "Vaisar"
+    And I fill "user_password" with "heslo123"
+    And I fill "user_password_confirmation" with "heslo123"
+    And I fill "user_email" with "tomas@vaisar.cz"
+    And I fill "user_billapp_user" with "tomas.vaisar@gmail.com"
+    And I fill "user_billapp_password" with "heslicko"
+    And I fill "user_billapp_agenda" with "tomvaisar"
+    Then I should not register and I should see error message about exisiting account

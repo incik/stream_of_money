@@ -1,4 +1,4 @@
-When(/^I go to homepage$/) do
+When(/^I go to (homepage|dashboard)$/) do |dest|
   visit '/'
 end
 
@@ -13,7 +13,7 @@ Given /^I am logged in$/ do
   visit new_user_session_path
   fill_in 'user_email', :with => 'tomas@vaisar.cz'
   fill_in 'user_password', :with => 'heslo'
-  click_button('save')
+  click_button('Log in')
 end
 
 Given /^there is user "(.*?)"$/ do |email|

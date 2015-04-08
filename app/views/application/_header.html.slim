@@ -21,4 +21,4 @@
 
         ul.nav.navbar-nav.navbar-right
           li
-            =link_to current_user.name, destroy_user_session_path
+            =link_to current_user.name, destroy_user_session_path, method: :delete
