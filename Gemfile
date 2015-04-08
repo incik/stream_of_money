@@ -49,7 +49,7 @@ end
 
 group :test do
   gem 'capybara-screenshot'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist', '>= 1.5.0'
