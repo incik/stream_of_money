@@ -55,5 +55,6 @@ group :test do
   gem 'poltergeist', '>= 1.5.0'
   gem 'simplecov', '~> 0.9.1', require: false
   gem 'webmock'
+  gem 'rack-test'
 end
 

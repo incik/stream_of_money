@@ -408,6 +408,7 @@ DEPENDENCIES
   pry-doc
   pry-rails
   quiet_assets
+  rack-test
   rails (~> 4.2.1)
   rails-i18n-debug!
   rspec-rails (>= 3.1)
