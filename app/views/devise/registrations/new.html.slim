@@ -1,0 +1,45 @@
+h1 Sign up
+
+.well
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+
+    .row
+      .col-md-6.form-group
+        = f.label :name
+        = f.text_field :name, autofocus: true, class: :'form-control'
+      .col-md-6.form-group
+        = f.label :billapp_user
+        = f.email_field :billapp_user, class: :'form-control'
+
+    .row
+      .col-md-6.form-group
+        = f.label :surname
+        = f.text_field :surname, class: :'form-control'
+      .col-md-6.form-group
+        = f.label :billapp_password
+        = f.password_field :billapp_password, class: :'form-control'
+
+    .row
+      .col-md-6.form-group
+        = f.label :email
+        = f.email_field :email, class: :'form-control'
+      .col-md-6.form-group
+        = f.label :billapp_agenda
+        = f.text_field :billapp_agenda, class: :'form-control'
+
+    .row
+      .col-md-6.form-group
+        = f.label :password
+        = f.password_field :password, class: :'form-control'
+
+    .row
+      .col-md-6.form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, class: :'form-control'
+
+    .row
+      .col-md-12
+        = f.submit 'Sign up', class: :'btn btn-primary pull-right'
+
+= render 'devise/shared/links'
