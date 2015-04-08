@@ -1,4 +1,4 @@
-Feature: Homepage interaction
+Feature: Homepage for user that's not logged in
 
   Background:
     Given I am not logged in
