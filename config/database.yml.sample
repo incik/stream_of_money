@@ -1,0 +1,12 @@
+development: &default
+  adapter: postgresql
+  database: stream_of_money_development
+  encoding: utf8
+  min_messages: warning
+  pool: 5
+  timeout: 5000
+
+test:
+  <<: *default
+  database: stream_of_money_test
+
