@@ -1,1 +1,31 @@
-.invoice-list
+h1 Invoices overview
+
+.invoice-list.pseudo-table
+  .header
+    .row
+      .cell.col-xs-2 Invoice number
+      .cell.col-xs-2 Total price
+      .cell.col-xs-2 Currency
+      .cell.col-xs-2 Expenses
+      .cell.col-xs-2 Result
+      .cell.col-xs-2
+  .body
+    - @invoices.each_with_index do |invoice, index|
+      .row.invoice-row
+        .cell.col-xs-2 = invoice.number
+        .cell.col-xs-2 = invoice.total_amount
+        .cell.col-xs-2 = invoice.currency
+        .cell.col-xs-2
+        .cell.col-xs-2
+        .cell.col-xs-2
+          a class="invoice-expander" data-toggle="collapse" href="#invoice-detail-#{index}"
+            i.glyphicon.glyphicon-zoom-in
+      .row.collapse.invoice-detail-row id="invoice-detail-#{index}"
+        .cell.col-md-12
+          .line-list.psedo-table
+            .header
+              .row
+                .cell.col-xs-2 Description
+            .body
+              - invoice.lines.each do |line|
+                .cell.col-xs-2 = line.description

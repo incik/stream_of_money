@@ -1,0 +1,36 @@
+.pseudo-table {
+  //border: 1px solid #ddd;
+
+  .row {
+    margin: -1px -2px -1px -2px;
+  }
+
+  div[class^="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+    margin-top: -1px;
+
+    &:not(:last-child) {
+      border-right: 0;
+    }
+  }
+
+  .cell {
+    padding: 8px;
+  }
+
+  .header {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .body {
+    .row:nth-child(odd) {
+      background: #f9f9f9;
+    }
+    .row:nth-child(even) {
+      background: #fff;
+    }
+  }
+}
