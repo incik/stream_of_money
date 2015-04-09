@@ -11,9 +11,9 @@ Feature: User registration
     And I fill "user_surname" with "Vaisar"
     And I fill "user_password" with "heslo123"
     And I fill "user_password_confirmation" with "heslo123"
-    And I fill "user_email" with "tomas.vaisar@gmail.com"
-    And I fill "user_billapp_user" with "tomas.vaisar@gmail.com"
-    And I fill "user_billapp_password" with "heslicko"
+    And I fill "user_email" with "tomas@vaisar.cz"
+    And I fill "user_billapp_user" with "tomas@vaisar.cz"
+    And I fill "user_billapp_password" with "heslo"
     And I fill "user_billapp_agenda" with "tomvaisar"
     Then I should successfully register
 

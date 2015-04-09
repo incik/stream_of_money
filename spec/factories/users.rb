@@ -6,10 +6,15 @@ FactoryGirl.define do
     sequence :billapp_user do |n|
       "user-#{n}@gmail.com"
     end
-    billapp_password 'heslicko'
+    billapp_password 'heslo123'
     sequence :billapp_agenda do |n|
       "agenda#{n}"
     end
+  end
+
+  factory :billapp_user, class: User do
+    password 'heslo123'
+    password_confirmation 'heslo123'
   end
 
   factory :karelbagrcz, class: User do

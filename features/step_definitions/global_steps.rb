@@ -8,16 +8,24 @@ end
 
 Given /^I am logged in$/ do
   FactoryGirl.create :tomasvaisarcz
+  webmock_1_invoice
 
   delete destroy_user_session_path
   visit new_user_session_path
   fill_in 'user_email', :with => 'tomas@vaisar.cz'
-  fill_in 'user_password', :with => 'heslo'
+  fill_in 'user_password', :with => 'heslo123'
   click_button('Log in')
 end
 
 Given /^there is user "(.*?)"$/ do |email|
-  FactoryGirl.create(:user, email: email)
+  FactoryGirl.create(:user, email: email, billapp_user: email)
+end
+
+Given /^there is billapp user "(.*?)" with agenda "(.*?)" and password "(.*?)"$/ do |email, agenda, password|
+  FactoryGirl.create(:billapp_user, email: email,
+                            billapp_user: email,
+                            billapp_agenda: agenda,
+                            billapp_password: password)
 end
 
 Given /^I am not logged in$/ do

@@ -3,9 +3,11 @@ Then(/^I should see login form$/) do
 end
 
 Then(/^I should successfully sign in$/) do
+  webmock_1_invoice
+
   click_button('Log in')
 
-  expect(page).to have_css('div.invoice-list')
+  expect(page).to have_css('.invoice-list')
 end
 
 Then(/^I should not successfully sign in$/) do

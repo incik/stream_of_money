@@ -6,7 +6,7 @@ Feature: Homepage for user that's not logged in
     Then I should see login form
 
   Scenario: Successful signing in
-    Given there is user "tomas@vaisar.cz"
+    Given there is billapp user "tomas@vaisar.cz" with agenda "tomvaisar" and password "heslo"
     When I fill "user_email" with "tomas@vaisar.cz"
     And I fill "user_password" with "heslo123"
     Then I should successfully sign in
