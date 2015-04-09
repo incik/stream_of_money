@@ -35,7 +35,7 @@ describe DashboardController, :type => :controller do
 
     it "should load at least one invoice" do
       get 'index', {}
-      expect(response).to be_true
+      expect(assigns(:invoices).count).to be >= 1
     end
   end
 

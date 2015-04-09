@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 
 gem 'airbrake'
+gem 'activeresource'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.1.0'
