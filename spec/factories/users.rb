@@ -12,6 +12,17 @@ FactoryGirl.define do
     end
   end
 
+  factory :karelbagrcz, class: User do
+    email 'karel@bagr.cz'
+    name 'Karel'
+    surname 'Bagr'
+    password 'heslo123'
+    password_confirmation 'heslo123'
+    billapp_user 'karel@bagr.cz'
+    billapp_password 'heslicko'
+    billapp_agenda 'karelbagr'
+  end
+
   factory :tomasvaisarcz, class: User do
     email 'tomas@vaisar.cz'
     name 'Tomáš'

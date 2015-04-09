@@ -2,20 +2,40 @@ require 'spec_helper'
 
 describe DashboardController, :type => :controller do
 
-  describe "access invoices overview" do
+  describe "Unsigned user tries to access invoices overview" do
 
-    it "should redirect to login form if user is not signed in" do
+    it "should redirect to login form" do
       get 'index', {}
       expect(response).to redirect_to(new_user_session_path)
     end
+  end
 
-    it "should load dashboard if user is signed in" do
+  describe "Signed user with no invoices" do
+
+    before(:each) do
       @request.env["devise.mapping"] = Devise.mappings[:user]
-      @incik = FactoryGirl.create(:minimal_user)
-      sign_in @incik
+      @karel = FactoryGirl.create(:karelbagrcz)
+      sign_in @karel
+    end
 
+    it "should show no invoices" do
       get 'index', {}
-      expect(response).to have_selector('.invoice-list')
+      expect(assigns(:invoices).count).to equal(0)
+    end
+
+  end
+
+  describe "Signed user with some invoices" do
+
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      @tom = FactoryGirl.create(:tomasvaisarcz)
+      sign_in @tom
+    end
+
+    it "should load at least one invoice" do
+      get 'index', {}
+      expect(response).to be_true
     end
   end
 
