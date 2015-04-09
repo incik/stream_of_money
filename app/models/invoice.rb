@@ -7,4 +7,8 @@ class Invoice < ActiveResource::Base
     self.password = params[:password]
     self.format = :xml
   end
+
+  def expenses
+    Expense.where(invoice_id: self.id)
+  end
 end

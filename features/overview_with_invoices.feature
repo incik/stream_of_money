@@ -15,4 +15,5 @@ Feature: Overview with some invoices
   Scenario: Editing invoice
     When I expand invoice
     And I go to edit invoice page
+    Then show me the page
     Then I should see invoice edit form

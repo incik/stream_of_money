@@ -1,0 +1,9 @@
+h1 Edit expenses
+
+= @invoice.number
+
+.expenses-form
+
+- @rows.each do |row|
+
+  = row.description
