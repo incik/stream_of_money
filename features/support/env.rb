@@ -57,6 +57,11 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+require 'webmock/cucumber'
+require Rails.root.join('spec', 'support', 'fixtures', 'stubbed_requests.rb')
+include WebmockFixtures
+
 WebMock.disable_net_connect!(allow_localhost: true, allow: 'codeclimate.com')
+
 Capybara.javascript_driver = :poltergeist
 World(Rack::Test::Methods)

@@ -16,6 +16,8 @@ describe DashboardController, :type => :controller do
       @request.env["devise.mapping"] = Devise.mappings[:user]
       @karel = FactoryGirl.create(:karelbagrcz)
       sign_in @karel
+
+      webmock_no_invoices
     end
 
     it "should show no invoices" do
@@ -31,6 +33,8 @@ describe DashboardController, :type => :controller do
       @request.env["devise.mapping"] = Devise.mappings[:user]
       @tom = FactoryGirl.create(:tomasvaisarcz)
       sign_in @tom
+
+      webmock_1_invoice
     end
 
     it "should load at least one invoice" do

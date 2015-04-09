@@ -7,6 +7,7 @@ Then(/^I go to registration$/) do
 end
 
 Then(/^I should successfully register$/) do
+  webmock_1_invoice
   click_button('save')
   expect(page).to have_css('.invoice-list')
 end

@@ -19,7 +19,7 @@ FactoryGirl.define do
     password 'heslo123'
     password_confirmation 'heslo123'
     billapp_user 'karel@bagr.cz'
-    billapp_password 'heslicko'
+    billapp_password 'heslo'
     billapp_agenda 'karelbagr'
   end
 
@@ -29,8 +29,8 @@ FactoryGirl.define do
     surname 'Vaisar'
     password 'heslo123'
     password_confirmation 'heslo123'
-    billapp_user 'tomas.vaisar@gmail.com'
-    billapp_password 'heslicko'
+    billapp_user 'tomas@vaisar.cz'
+    billapp_password 'heslo'
     billapp_agenda 'tomvaisar'
   end
 end
