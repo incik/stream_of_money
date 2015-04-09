@@ -10,4 +10,9 @@ h1 Invoices overview
       .cell.col-xs-2 Result
       .cell.col-xs-2
   .body
-    = render 'invoice_line', collection: @invoices
+    - if @invoices.present?
+      = render partial: 'dashboard/invoice_line', locals: { invoices: @invoices }
+    - else
+      .row
+        .cell.col-xs-12.empty No invoices
+

@@ -1,10 +1,11 @@
-- @invoices.each_with_index do |invoice, index|
+- invoices.each_with_index do |invoice, index|
+  - binding
   .row.invoice-row
     .cell.col-xs-2 = invoice.number
     .cell.col-xs-2 = invoice.total_amount
     .cell.col-xs-2 = invoice.currency
-    .cell.col-xs-2
-    .cell.col-xs-2
+    .cell.col-xs-2 = invoice.expenses_cost
+    .cell.col-xs-2 = invoice.result_cost
     .cell.col-xs-2
       a class="invoice-expander" data-toggle="collapse" href="#invoice-detail-#{index}"
         i.glyphicon.glyphicon-zoom-in
