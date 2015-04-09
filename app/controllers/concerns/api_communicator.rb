@@ -6,6 +6,6 @@ module ApiCommunicator
   end
 
   def set_api_credentials
-    Invoice.set_api_credentials(current_user)
+    Invoice.set_api_credentials(current_user.api_credentials)
   end
 end
