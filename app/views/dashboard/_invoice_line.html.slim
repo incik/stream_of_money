@@ -9,7 +9,7 @@
     .cell.col-xs-2
       a class="invoice-expander" data-toggle="collapse" href="#invoice-detail-#{index}"
         i.glyphicon.glyphicon-zoom-in
-      = link_to edit_invoice_path(invoice.id), class: 'edit-link' do
+      =< link_to edit_invoice_path(invoice.id), class: 'edit-link' do
         i.glyphicon.glyphicon-pencil
   .row.collapse.invoice-detail-row id="invoice-detail-#{index}"
     .cell.col-md-12
@@ -18,5 +18,9 @@
           .row
             .cell.col-xs-2 Description
         .body
-          - invoice.lines.each do |line|
+          - invoice.lines.each_with_index do |line, index|
+            - puts line.description
             .cell.col-xs-2 = line.description
+            .cell.col-xs-2 = line.quantity
+            .cell.col-xs-2 = line.unit_price
+            .cell.col-xs-2 =
