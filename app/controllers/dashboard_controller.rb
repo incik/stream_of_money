@@ -1,3 +1,3 @@
-class DashboardController < AuthenticatedController
-
+class DashboardController < ApplicationController
+  include Authenticable
 end
