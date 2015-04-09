@@ -14,5 +14,14 @@ Then(/^I should see invoice lines$/) do
 end
 
 Then(/^I should see edit link$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_css('.edit-link')
+end
+
+When(/^I go to edit invoice page$/) do
+  first('.edit-link').click
+  # expect(page).to have_content('Edit expenses')
+end
+
+Then(/^I should see invoice edit form$/) do
+  expect(page).to have_css('.expenses-form')
 end

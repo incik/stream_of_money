@@ -8,6 +8,8 @@
     .cell.col-xs-2
       a class="invoice-expander" data-toggle="collapse" href="#invoice-detail-#{index}"
         i.glyphicon.glyphicon-zoom-in
+      = link_to edit_invoice_path(invoice.id), class: 'edit-link' do
+        i.glyphicon.glyphicon-pencil
   .row.collapse.invoice-detail-row id="invoice-detail-#{index}"
     .cell.col-md-12
       .line-list.psedo-table
