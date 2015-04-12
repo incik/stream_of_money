@@ -39,6 +39,19 @@ describe 'invoice resource' do
       it 'should have at least one line' do
         expect(valid_invoice.lines.count).to be >= 1
       end
+
+      describe 'invoice with no expsenses' do
+        it 'should return 0 for expenses'
+
+        it 'should say that result is same as total amount'
+      end
+
+      describe 'invoice with some expsenses' do
+
+        it 'should return expenses of 10000'
+
+        it 'should return result 10000 less than total amount'
+      end
     end
 
   end
