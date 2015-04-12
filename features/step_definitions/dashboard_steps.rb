@@ -18,8 +18,9 @@ Then(/^I should see edit link$/) do
 end
 
 When(/^I go to edit invoice page$/) do
+  webmock_invoice_hay
+
   first('.edit-link').click
-  # expect(page).to have_content('Edit expenses')
 end
 
 Then(/^I should see invoice edit form$/) do
