@@ -3,21 +3,21 @@
     .navbar-header
       =link_to 'Stream of money', root_path, class: 'navbar-brand'
 
-      button.navbar-toggle type="button" data-toggle="collapse" data-target="#navbar-main"
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-
-    .navbar-collapse.collapse id="navbar-main"
-      ul.nav.navbar-nav
-        li.dropdown
-          a href="#" INVOICES
-        li
-          a href="#" PRICE LIST
-        li
-          a href="#" STATS
-
       - if current_user.present?
+        button.navbar-toggle type="button" data-toggle="collapse" data-target="#navbar-main"
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+
+    - if current_user.present?
+      .navbar-collapse.collapse id="navbar-main"
+        ul.nav.navbar-nav
+          li.dropdown
+            a href="#" INVOICES
+          li
+            a href="#" PRICE LIST
+          li
+            a href="#" STATS
 
         ul.nav.navbar-nav.navbar-right
           li
