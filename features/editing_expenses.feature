@@ -10,7 +10,7 @@ Feature: Editing invoice expenses
 
   @javascript
   Scenario: Adding the expense manually
-    When I fill "expense_price" with "920"
+    When I fill expense field with "920"
     Then I should see expenses equal to "920"
 
   @javascript

@@ -6,7 +6,10 @@ h2 = @invoice.number
 
   - @invoice.lines.each do |line|
     - expense = line.expense(@invoice.id).nil? \
-                  ? Expense.new(invoice_id: @invoice.id) \
+                  ? Expense.new( \
+                      invoice_id: @invoice.id, \
+                      description: line.description \
+                    ) \
                   : line.expense(@invoice.id)
 
     = form_for expense do |f|
