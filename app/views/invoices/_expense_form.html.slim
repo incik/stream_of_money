@@ -1,10 +1,13 @@
+tr
+  td
+    = f.hidden_field :description
+    = f.hidden_field :invoice_id
+    = line.description
+  td = line.quantity
+  td = line.unit_price
+  td = line.total_amount
+  td = f.text_field :expense, class: 'expense_price'
+  td = line.earnings(invoice_id)
+  td = f.submit
 
 
-= f.hidden_field :description
-
-= f.hidden_field :invoice_id
-
-= f.label :expense
-= f.text_field :expense, class: 'expense_price'
-
-= f.submit

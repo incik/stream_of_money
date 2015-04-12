@@ -2,16 +2,24 @@ h1 Edit expenses
 
 h2 = @invoice.number
 
-.expenses-form
+table.expenses-form
+  thead
+    tr
+      td Description
+      td Quantity
+      td Unit Price
+      td Total amount
+      td Expenses
+      td Result
+  tbody
+    - @invoice.lines.each do |line|
+      - expense = line.expense(@invoice.id).nil? \
+                    ? Expense.new( \
+                        invoice_id: @invoice.id, \
+                        description: line.description \
+                      ) \
+                    : line.expense(@invoice.id)
 
-  - @invoice.lines.each do |line|
-    - expense = line.expense(@invoice.id).nil? \
-                  ? Expense.new( \
-                      invoice_id: @invoice.id, \
-                      description: line.description \
-                    ) \
-                  : line.expense(@invoice.id)
-
-    = form_for expense do |f|
-        = render partial: 'invoices/expense_form',
-               locals: { f: f, line: line, invoice_id: @invoice.id }
+      = form_for expense do |f|
+          = render partial: 'invoices/expense_form',
+                 locals: { f: f, line: line, invoice_id: @invoice.id }

@@ -9,7 +9,7 @@ class ExpensesController < ApplicationController
     else
       flash[:error] = 'Error while saving expense'
     end
-    redirect_to root_path
+    redirect_to edit_invoice_path(@expense.invoice_id)
   end
 
   def update
@@ -19,7 +19,7 @@ class ExpensesController < ApplicationController
     else
       flash[:error] = 'Error while saving expense'
     end
-    redirect_to root_path
+    redirect_to edit_invoice_path(@expense.invoice_id)
   end
 
   private
