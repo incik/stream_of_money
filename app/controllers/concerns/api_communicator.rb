@@ -6,6 +6,8 @@ module ApiCommunicator
   end
 
   def set_api_credentials
-    Invoice.set_api_credentials(current_user.api_credentials)
+    [Invoice, InvoiceLine].each do |klass|
+      klass.set_api_credentials(current_user.api_credentials)
+    end
   end
 end
