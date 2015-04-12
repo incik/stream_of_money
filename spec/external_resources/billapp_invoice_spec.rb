@@ -45,8 +45,10 @@ describe 'invoice resource' do
           expect(valid_invoice.expenses_cost).to be_equal(0)
         end
 
-        it 'should say that result is same as total amount' do
-          expect(valid_invoice.result_cost.to_f).to be_equal(valid_invoice.total_amount.to_f)
+        it 'should say that earnings are same as total amount' do
+          expect(valid_invoice.earnings.to_f).to(
+            be_equal(valid_invoice.total_amount.to_f)
+          )
         end
       end
 
@@ -65,8 +67,10 @@ describe 'invoice resource' do
           expect(valid_invoice.expenses_cost.to_f).to be_equal(10000.0)
         end
 
-        it 'should return result 10000 less than total amount' do
-          expect(valid_invoice.result_cost.to_f).to be_equal((valid_invoice.total_amount - 10000).to_f)
+        it 'should return earnings 10000 less than total amount' do
+          expect(valid_invoice.earnings.to_f).to(
+            be_equal((valid_invoice.total_amount - 10000).to_f)
+          )
         end
 
       end

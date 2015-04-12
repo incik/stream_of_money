@@ -1,6 +1,6 @@
 .cell.col-xs-2 = invoice_detail_line.description
 .cell.col-xs-2 = invoice_detail_line.quantity
 .cell.col-xs-2 = invoice_detail_line.unit_price
-.cell.col-xs-2 = invoice_detail_line.quantity * invoice_detail_line.unit_price
+.cell.col-xs-2 = invoice_detail_line.total_amount
 .cell.col-xs-2 = invoice_detail_line.expenses_cost(invoice.id)
-/.cell.col-xs-2 = invoice_detail_line.(line.quantity * line.unit_price) - (invoice.expenses[index] ? invoice.expenses[index].expense : 0)
+.cell.col-xs-2 = invoice_detail_line.earnings(invoice.id)

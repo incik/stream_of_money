@@ -9,4 +9,13 @@ class InvoiceLine < ApiResource
   def expenses_cost(invoice_id)
     expenses(invoice_id).inject(0) { |sum, expense| sum + expense.expense }
   end
+
+  def total_amount
+    quantity * unit_price
+  end
+
+  def earnings(invoice_id)
+    total_amount - expenses_cost(invoice_id)
+  end
+
 end

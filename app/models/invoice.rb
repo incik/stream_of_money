@@ -9,7 +9,7 @@ class Invoice < ApiResource
     expenses.inject(0) { |sum, expense| sum + expense.expense }
   end
 
-  def result_cost
+  def earnings
     total_amount - expenses_cost
   end
 
