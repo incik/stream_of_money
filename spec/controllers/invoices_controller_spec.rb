@@ -5,6 +5,10 @@ describe InvoicesController, :type => :controller do
   describe "Existing invoice" do
 
     before do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      @tom = FactoryGirl.create(:tomasvaisarcz)
+      sign_in @tom
+
       webmock_invoice_hay
     end
 
