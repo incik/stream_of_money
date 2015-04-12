@@ -18,13 +18,24 @@ describe 'invoice line resource' do
 
     describe 'invoice with no expenses' do
 
-      it 'should return empty array for expenses'
+      it 'should return empty array for expenses' do
+        expect(invoice_line.expenses).to be_equal([])
+      end
 
     end
 
     describe 'invoice with some expenses' do
 
-      it 'should return expenses of 10000'
+      before do
+        @expense = FactoryGirl.create(:expense,
+                                      invoice_id:  valid_invoice.id,
+                                      description: invoice_line.description,
+                                      expense:     10000)
+      end
+
+      it 'should return expenses of 10000' do
+        expect(invoice_line.expenses).to be_equal(10000)
+      end
 
     end
 
