@@ -4,6 +4,11 @@ h2 = @invoice.number
 
 .expenses-form
 
-  - @invoice.lines.each do |row|
+  - @invoice.lines.each do |line|
+    - expense = line.expense(@invoice.id).nil? \
+                  ? Expense.new(invoice_id: @invoice.id) \
+                  : line.expense(@invoice.id)
 
-    = row.description
+    = form_for expense do |f|
+        = render partial: 'invoices/expense_form',
+               locals: { f: f, line: line, invoice_id: @invoice.id }
