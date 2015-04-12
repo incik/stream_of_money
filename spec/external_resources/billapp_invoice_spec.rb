@@ -41,16 +41,34 @@ describe 'invoice resource' do
       end
 
       describe 'invoice with no expsenses' do
-        it 'should return 0 for expenses'
+        it 'should return 0 for expenses' do
+          expect(valid_invoice.expenses_cost).to be_equal(0)
+        end
 
-        it 'should say that result is same as total amount'
+        it 'should say that result is same as total amount' do
+          expect(valid_invoice.result_cost.to_f).to be_equal(valid_invoice.total_amount.to_f)
+        end
       end
 
       describe 'invoice with some expsenses' do
 
-        it 'should return expenses of 10000'
+        let(:invoice_line) { valid_invoice.lines.first }
 
-        it 'should return result 10000 less than total amount'
+        before do
+          @expense = FactoryGirl.create(:expense,
+                                        invoice_id:  valid_invoice.id,
+                                        description: invoice_line.description,
+                                        expense:     10000)
+        end
+
+        it 'should return expenses of 10000' do
+          expect(valid_invoice.expenses_cost.to_f).to be_equal(10000.0)
+        end
+
+        it 'should return result 10000 less than total amount' do
+          expect(valid_invoice.result_cost.to_f).to be_equal((valid_invoice.total_amount - 10000).to_f)
+        end
+
       end
     end
 

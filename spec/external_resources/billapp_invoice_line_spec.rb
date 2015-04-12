@@ -19,7 +19,7 @@ describe 'invoice line resource' do
     describe 'invoice with no expenses' do
 
       it 'should return expenses of 0' do
-        expect(invoice_line.expenses(valid_invoice.id)).to be_equal(0)
+        expect(invoice_line.expenses_cost(valid_invoice.id)).to be_equal(0)
       end
 
     end
@@ -34,7 +34,7 @@ describe 'invoice line resource' do
       end
 
       it 'should return expenses of 10000' do
-        expect(invoice_line.expenses(valid_invoice.id)).to be_equal(10000)
+        expect(invoice_line.expenses_cost(valid_invoice.id).to_f).to be_equal(10000.0)
       end
 
     end
