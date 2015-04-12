@@ -1,0 +1,15 @@
+.invoice-list.pseudo-table
+  .header
+    .row
+      .cell.col-xs-2 Invoice number
+      .cell.col-xs-2 Total price
+      .cell.col-xs-2 Currency
+      .cell.col-xs-2 Expenses
+      .cell.col-xs-2 Result
+      .cell.col-xs-2
+  .body
+    - if invoices.present?
+      = render partial: 'dashboard/invoice_line', collection: invoices
+    - else
+      .row
+        .cell.col-xs-12.empty No invoices

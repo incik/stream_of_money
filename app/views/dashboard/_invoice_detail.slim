@@ -1,0 +1,15 @@
+.row.collapse.invoice-detail-row id="invoice-detail-#{index}"
+    .cell.col-md-12
+      .line-list.psedo-table
+        .header
+          .row
+            .cell.col-xs-2 Description
+            .cell.col-xs-2 Quantity
+            .cell.col-xs-2 Unit price
+            .cell.col-xs-2 Total amount
+            .cell.col-xs-2 Expenses
+            .cell.col-xs-2 Result
+        .body
+          = render partial: 'dashboard/invoice_detail_line',
+                   collection: invoice.lines,
+                   locals: { invoice: invoice, index: index }

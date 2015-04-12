@@ -1,33 +1,13 @@
-- invoices.each_with_index do |invoice, index|
-  - binding
-  .row.invoice-row
-    .cell.col-xs-2 = invoice.number
-    .cell.col-xs-2 = invoice.total_amount
-    .cell.col-xs-2 = invoice.currency
-    .cell.col-xs-2 = invoice.expenses_cost
-    .cell.col-xs-2 = invoice.result_cost
-    .cell.col-xs-2
-      a class="invoice-expander" data-toggle="collapse" href="#invoice-detail-#{index}"
-        i.glyphicon.glyphicon-zoom-in
-      =< link_to edit_invoice_path(invoice.id), class: 'edit-link' do
-        i.glyphicon.glyphicon-pencil
-  .row.collapse.invoice-detail-row id="invoice-detail-#{index}"
-    .cell.col-md-12
-      .line-list.psedo-table
-        .header
-          .row
-            .cell.col-xs-2 Description
-            .cell.col-xs-2 Quantity
-            .cell.col-xs-2 Unit price
-            .cell.col-xs-2 Total amount
-            .cell.col-xs-2 Expenses
-            .cell.col-xs-2 Result
-        .body
-          - invoice.lines.each_with_index do |line, index|
-            - puts line.description
-            .cell.col-xs-2 = line.description
-            .cell.col-xs-2 = line.quantity
-            .cell.col-xs-2 = line.unit_price
-            .cell.col-xs-2 = line.quantity * line.unit_price
-            .cell.col-xs-2 = invoice.expenses[index] ? invoice.expenses[index].expense : 0
-            .cell.col-xs-2 = (line.quantity * line.unit_price) - (invoice.expenses[index] ? invoice.expenses[index].expense : 0)
+.row.invoice-row
+  .cell.col-xs-2 = invoice_line.number
+  .cell.col-xs-2 = invoice_line.total_amount
+  .cell.col-xs-2 = invoice_line.currency
+  .cell.col-xs-2 = invoice_line.expenses_cost
+  .cell.col-xs-2 = invoice_line.result_cost
+  .cell.col-xs-2
+    a class="invoice-expander" data-toggle="collapse" href="#invoice-detail-#{invoice_line_counter}"
+      i.glyphicon.glyphicon-zoom-in
+    =< link_to edit_invoice_path(invoice_line.id), class: 'edit-link' do
+      i.glyphicon.glyphicon-pencil
+= render partial: 'dashboard/invoice_detail',
+         locals: { invoice: invoice_line, index: invoice_line_counter }
