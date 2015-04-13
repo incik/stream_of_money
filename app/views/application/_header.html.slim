@@ -13,7 +13,7 @@
       .navbar-collapse.collapse id="navbar-main"
         ul.nav.navbar-nav
           li.dropdown
-            a href="#" INVOICES
+            = link_to 'INVOICES', root_path
           li
             a href="#" PRICE LIST
           li
@@ -21,4 +21,5 @@
 
         ul.nav.navbar-nav.navbar-right
           li
-            =link_to current_user.name, destroy_user_session_path, method: :delete
+            = link_to 'Log out: ' + current_user.name, \
+              destroy_user_session_path, method: :delete
