@@ -1,9 +1,10 @@
 # Stream Of Money – Blueberry Rails project
 
-Use the following guides for getting things done, programming well, and
-programming in style.
+What is working
+* Logging in
+* Loading invoices via API
+* Adding/modifying expenses for each invoice line
 
-* [Protocol](http://github.com/thoughtbot/guides/blob/master/protocol)
-* [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
-* [Style](http://github.com/thoughtbot/guides/blob/master/style)
-* [Git commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+Nice to have features
+* Price list - would be great to be able to pick expenses from list of predefined items
+* Stats - some basics stats about how does/doesn't the business flourish
