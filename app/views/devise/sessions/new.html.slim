@@ -1,0 +1,18 @@
+h1 Log in
+
+.well.login-form
+  = form_for(:user, url: session_path(resource_name)) do |f|
+    = devise_error_messages!
+
+    .row
+      .col-md-5.form-group
+        = f.label :email
+        = f.email_field :email, class: :'form-control'
+      .col-md-5.form-group
+        = f.label :password
+        = f.password_field :password, class: :'form-control'
+      .col-md-2
+        = f.submit 'Log in', id: 'save', class: :'btn btn-primary btn-block'
+
+
+= render 'devise/shared/links'

@@ -1,5 +1,5 @@
 Then(/^I should see login form$/) do
-  expect(page).to have_selector('form.new_user')
+  expect(page).to have_selector('.login-form')
 end
 
 Then(/^I should successfully sign in$/) do
