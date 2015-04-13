@@ -2,15 +2,16 @@ h1 Edit expenses
 
 h2 = @invoice.number
 
-table.expenses-form
+table.expenses-form.table
   thead
     tr
-      td Description
-      td Quantity
-      td Unit Price
-      td Total amount
-      td Expenses
-      td Result
+      th Description
+      th Quantity
+      th Unit Price
+      th Total amount
+      th Expenses
+      th Result
+      th
   tbody
     - @invoice.lines.each do |line|
       - expense = line.expense(@invoice.id).nil? \
