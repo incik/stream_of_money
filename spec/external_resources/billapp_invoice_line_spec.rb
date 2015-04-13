@@ -19,12 +19,12 @@ describe 'invoice line resource' do
     describe 'invoice with no expenses' do
 
       it 'should return expenses of 0' do
-        expect(invoice_line.expense_cost(valid_invoice.id)).to be_equal(0)
+        expect(invoice_line.expense_cost(valid_invoice.id)).to eq(0)
       end
 
       it 'should return earnings equal to total amount' do
-        expect(invoice_line.earnings(valid_invoice.id).to_f).to(
-          be_equal(invoice_line.total_amount.to_f)
+        expect(invoice_line.earnings(valid_invoice.id)).to(
+          eq(invoice_line.total_amount)
         )
       end
 
@@ -40,14 +40,14 @@ describe 'invoice line resource' do
       end
 
       it 'should return expenses of 10000' do
-        expect(invoice_line.expense_cost(valid_invoice.id).to_f).to(
-          be_equal(10000.0)
+        expect(invoice_line.expense_cost(valid_invoice.id)).to(
+          eq(10000.0)
         )
       end
 
       it 'should return earnings 10000 less than total amount' do
-        expect(invoice_line.earnings(valid_invoice.id).to_f).to(
-          be_equal(invoice_line.total_amount.to_f - 10000.0)
+        expect(invoice_line.earnings(valid_invoice.id)).to(
+          eq(invoice_line.total_amount - 10000.0)
         )
       end
 
