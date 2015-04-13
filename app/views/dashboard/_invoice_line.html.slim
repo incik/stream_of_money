@@ -3,7 +3,9 @@
   .cell.col-xs-2 = invoice_line.total_amount
   .cell.col-xs-2 = invoice_line.currency
   .cell.col-xs-2 = invoice_line.expenses_cost
-  .cell.col-xs-2 = invoice_line.earnings
+  .cell.col-xs-2
+    span class="#{invoice_line.earnings > 0 ? 'green' : 'red'}"
+      = invoice_line.earnings
   .cell.col-xs-2
     a class="invoice-expander" data-toggle="collapse" href="#invoice-detail-#{invoice_line_counter}"
       i.glyphicon.glyphicon-zoom-in
