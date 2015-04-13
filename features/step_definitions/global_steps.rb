@@ -21,6 +21,10 @@ Given /^I am logged in$/ do
   step 'log in user "tomas@vaisar.cz"'
 end
 
+Given(/^I am logged in as 'karel@seznam\.cz'$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
 Given /^I am logged in as karel@bagr.cz$/ do
   FactoryGirl.create :karelbagrcz
   webmock_no_invoices
