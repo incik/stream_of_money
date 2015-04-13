@@ -7,7 +7,7 @@ class InvoiceLine < ApiResource
   end
 
   def expense_cost(invoice_id)
-    expense(invoice_id).nil? ? 0 : expense(invoice_id).expense
+    expense(invoice_id).nil? ? 0.0 : expense(invoice_id).expense
   end
 
   def total_amount

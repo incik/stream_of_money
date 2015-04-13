@@ -17,7 +17,8 @@ table.expenses-form.table
       - expense = line.expense(@invoice.id).nil? \
                     ? Expense.new( \
                         invoice_id: @invoice.id, \
-                        description: line.description \
+                        description: line.description, \
+                        expense: 0.0 \
                       ) \
                     : line.expense(@invoice.id)
 
