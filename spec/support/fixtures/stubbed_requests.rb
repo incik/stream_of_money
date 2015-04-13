@@ -39,6 +39,13 @@ module WebmockFixtures
                             <unit-price type="decimal">30000.0</unit-price>
                             <vat type="decimal">0.0</vat>
                         </line>
+                        <line type="InvoiceLine">
+                            <description>Kupa hnoje</description>
+                            <item-id type="integer" nil="true"></item-id>
+                            <quantity type="decimal">1.0</quantity>
+                            <unit-price type="decimal">5000.0</unit-price>
+                            <vat type="decimal">0.0</vat>
+                        </line>
                     </lines>
                 </invoice>
             </invoices>', :headers => {})
@@ -70,6 +77,13 @@ module WebmockFixtures
             <item-id type="integer" nil="true"></item-id>
             <quantity type="decimal">1.0</quantity>
             <unit-price type="decimal">30000.0</unit-price>
+            <vat type="decimal">0.0</vat>
+        </line>
+        <line type="InvoiceLine">
+            <description>Kupa hnoje</description>
+            <item-id type="integer" nil="true"></item-id>
+            <quantity type="decimal">1.0</quantity>
+            <unit-price type="decimal">5000.0</unit-price>
             <vat type="decimal">0.0</vat>
         </line>
     </lines>

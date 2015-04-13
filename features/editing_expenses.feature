@@ -11,7 +11,8 @@ Feature: Editing invoice expenses
   @javascript
   Scenario: Adding the expense manually
     When I fill expense field with "920"
-    Then I should see expenses equal to "920"
+    And I save the changes
+    Then I should see expenses equal to "920.0"
 
   @javascript
   Scenario: Adding the expense from price list
