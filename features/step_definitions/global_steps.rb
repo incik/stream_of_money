@@ -6,15 +6,26 @@ Then /^show me the page$/ do
   save_and_open_page
 end
 
+Then /^log in user "(.*?)"$/ do |username|
+  delete destroy_user_session_path
+  visit new_user_session_path
+  fill_in 'user_email', :with => username
+  fill_in 'user_password', :with => 'heslo123'
+  click_button('Log in')
+end
+
 Given /^I am logged in$/ do
   FactoryGirl.create :tomasvaisarcz
   webmock_1_invoice
 
-  delete destroy_user_session_path
-  visit new_user_session_path
-  fill_in 'user_email', :with => 'tomas@vaisar.cz'
-  fill_in 'user_password', :with => 'heslo123'
-  click_button('Log in')
+  step 'log in user "tomas@vaisar.cz"'
+end
+
+Given /^I am logged in as karel@bagr.cz$/ do
+  FactoryGirl.create :karelbagrcz
+  webmock_no_invoices
+
+  step 'log in user "karel@bagr.cz"'
 end
 
 Given /^there is user "(.*?)"$/ do |email|

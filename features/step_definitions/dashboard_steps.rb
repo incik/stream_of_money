@@ -9,6 +9,10 @@ When(/^I expand invoice$/) do
   first('.invoice-expander').click
 end
 
+Then(/^I see no invoices$/) do
+  expect(page).to have_css('.invoice-row', count: 0)
+end
+
 Then(/^I should see invoice lines$/) do
   expect(page).to have_css('.invoice-detail-row')
 end
